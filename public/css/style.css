@@ -1,0 +1,25 @@
+body {
+	background: url(../images/background.jpg) no-repeat fixed;
+	background-size: 100% 100%;
+
+}
+
+.nav-wrapper {
+	background-color: purple;
+	font-family: 'Dancing Script', cursive;
+	font-size: 24px;
+}
+
+.homepage-font {
+	text-align: center;
+	font-family: 'Dancing Script', cursive;
+	color: purple;
+	margin-left: auto;
+    margin-right: auto;
+    padding: 80px;
+    border: 2px solid white;
+    background-color: white;
+}
+
+
+
