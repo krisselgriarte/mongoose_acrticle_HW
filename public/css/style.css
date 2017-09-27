@@ -21,5 +21,9 @@ body {
     background-color: white;
 }
 
+.modal-text {
+	text-align: center;
+	font-family: 'Dancing Script', cursive;
+}
 
 
