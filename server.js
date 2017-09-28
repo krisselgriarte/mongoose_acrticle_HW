@@ -8,7 +8,7 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 // Requiring our Note and Article models
 // var Note = require("./models/Note.js");
-// var Article = require("./models/Article.js");
+var Article = require("./models/articles.js");
 // Our scraping tools
 var request = require("request");
 var cheerio = require("cheerio");
@@ -58,18 +58,38 @@ app.get("/style", function(req, res) {
      result.headline = $(element).find("h2.headline").text();
      result.summary = $(element).find("p.summary").text();
      result.author = $(element).find("p.byline").text();
-     console.log(result);
+    	
+     var entry = new Article(result);
 
-
-
-
-
-
+     entry.save(function(err, doc) {
+        // Log any errors
+        if (err) {
+          console.log(err);
+        }
+        // Or log the doc
+        else {
+          console.log(doc);
+        }
+      });
 
     });
 
   });
+
+   Article.find({}, function(error, doc) {
+    // Log any errors
+    if (error) {
+      console.log(error);
+    }
+    // Or send the doc to the browser as a json object
+    else {
+      res.json(doc);
+    }
+  });
+
+
 });
+
 
 // Listen on port 3000
 app.listen(3000, function() {
